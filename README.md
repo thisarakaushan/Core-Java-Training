@@ -3,15 +3,15 @@
 ## Importance
 
 * Data Type	Size in bytes:
-  - Byte 	1 
-  - short	2
-  - int	4
-  - long	8
-  - float	4
-  - double	8
-  - char	2  // But in [c programming](https://www.tutorialspoint.com/cprogramming/c_data_types.htm) char size is '1'.
+  - Byte -	1 
+  - short	- 2
+  - int	- 4
+  - long - 8
+  - float	- 4
+  - double - 8
+  - char -	2  // But in [c programming](https://www.tutorialspoint.com/cprogramming/c_data_types.htm) char size is '1'.
   - string	// Dependent on string length
-  - boolean	1
+  - boolean -	1
 
 * Executable code will have a MAIN method but Libraries will not have a main method.
 
@@ -47,6 +47,7 @@
   Assigning an integer value to a primitive int variable in Java does not give an error. Both integer data = 5; and int data = 5; are valid assignments.
 
 * [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
+  
    ![image](https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/2c64fe98-bc9b-4d1d-9448-4219dc61faea)
    - StringBuilder creates a default capasity(16 bytes) in the memory. 
 
