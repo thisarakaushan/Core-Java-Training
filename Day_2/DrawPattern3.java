@@ -1,11 +1,11 @@
 /*
 Read no. of rows to be printed from user and print output.
 
-5 4 3 2 1
-5 4 3 2
-5 4 3 
-5 4
-5  
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 
+1  
 */
 
 package mypackage;
