@@ -11,12 +11,12 @@
   - double - 8
   - char -	2  // But in [c programming](https://www.tutorialspoint.com/cprogramming/c_data_types.htm) char size is '1'.
   - string	// Dependent on string length
-  - boolean -	1
+  - boolean -	```1 bit```
 
 * Executable code will have a MAIN method but Libraries will not have a main method.
 
-* Values Type variables are stored in a STACK memory. // Value type is faster that reference type.
-* Reference Tpye variables are stored in a HEAP memory.
+* Values Type variables are stored in a **STACK memory**. // Value type is faster that reference type.
+* Reference Tpye variables are stored in a **HEAP memory**.
 
 * String s1 = "Name";
   String s2 = "Name";
@@ -25,7 +25,7 @@
 
 * But,
   String s1 = "Name";  // This keep the value in String POOL/
-  String s2 = new String("Name"); // This keep the value in HEAP memory but outside the String POOL.
+  String s2 = new String("Name"); // This keep the value in **HEAP memory **but outside the String POOL.
   System.out.println(s1 = s2); and System.out.println(s1.equals(s2));--> 
   Both are different.
 
@@ -66,16 +66,16 @@ Operator Category	Operators List
 
 * USing Copy con filename.java , we can perform [Command Line](https://github.com/thisarakaushan/Core-Java-Training/tree/main/Day_2/Read%20Input%20using%20%20Command%20Line) Coding in Java.
 
-* Object Oriented Concept in Java:
+* **Object Oriented Concept in Java**:
 
   1. [Encapsulation](https://www.tutorialspoint.com/java/java_encapsulation.htm#:~:text=Encapsulation%20in%20Java%20is%20a,methods%20of%20their%20current%20class.) : Mainly Security and Modularity.
   2. [Inheritance](https://www.javatpoint.com/inheritance-in-java): Mainly Reusability
   3. [Polymorphism](geeksforgeeks.org/polymorphism-in-java/): means many forms - methods like [Overloading](https://www.javatpoint.com/method-overloading-in-java) and [Overriding](https://www.javatpoint.com/method-overriding-in-java)
   4. [Abstraction](https://www.geeksforgeeks.org/abstraction-in-java-2/)
 
-* <u>Normal Class</u> <strong>cannot</strong> have <u>Abstract method</u>.
+* _Normal Class_ **cannot have** _Abstract method_.
 
-* <u>Abstract Class</u> <strong>can have</strong> <u>Normal method</u>.
+* _Abstract Class_ **can have** _Normal method_.
 
 * Abstraction has two categories such as:
     1. Abstract Class:
@@ -93,22 +93,22 @@ Operator Category	Operators List
     - String static company = "ABC";
 * When method is declare as Static, we don't need to call by object it, we can access by class name.
   - ex: we supposed class name is Employee.
-     * we can create static method like --> public static void displayEmpData()
+     * we can create static method like --> **public static void** displayEmpData()
      * we can access this method without creating any object;
             - Employee.displayEmpData();
      * Also we can access using object but some warning will display.
 
-* <u>Static method</u> <strong>cannot</strong> access <u>Normal variable</u> but <u>Normal method</u> <strong>can</strong> access <u>Static variable</u>.
+* _Static method_ **cannot access** _Normal variable_ but _Normal method_ **can access** _Static variable_.
 
-* <u>Normal Class</u> <strong>can have</strong> <u>Static method</u>.
+* _Normal Class_ **can have** _Static method_ .
 
-* <u>Normal variable</u> should be <strong>Private</strong>, if not anyone can access and modify them.
+* _Normal variable_ should be **Private**, if not anyone can access and modify them.
 
 * Contructors:
     - Constructor is used initialize the class variables.
     - Contructor name should be as same as class name.
     - Class can have multiple constructors.
-    - Contructor doesn't have return type or any void.
+    - Contructor **doesn't have** return type or any void.
     - While we are creating a constructor, a default constructor is automatically created but is hidden from view.
  
 * Access Modifiers:
@@ -121,4 +121,118 @@ Operator Category	Operators List
 | Protected       | YES          | YES          | YES          | YES           | NO          |
 | Default         | YES          | YES          | YES          | NO            | NO          |
 
-  
+#### Arrays
+
+* Arrays are collections of similar data types.
+* Array index starts from zero.
+* Array elements are stored sequentially in memory location / requires       continous memory.
+* Array size cannot be modified / cannot modify the size dynamically.
+* Array variable size =  data_type X array_size
+
+* Arrays give easy access to elements and simple data struccture. It has     sequentila processing and index-based sorting. Also array supports for     multidimentional data.
+
+* Types of loops
+
+  Example: int[] numbers = new int[n]
+    1. For loop -> _for(int i=0; i<n; i++)_ or _for(int i=0; i<numbers.length; i++)_
+            - System.out.println(numbers[i])
+    2. For Each loop -> _for(int n: numebrs)_
+            - - System.out.println(n)
+    3. ForEach -> _numbers.forEach(n -> System.out.println(n))_
+ 
+### Note
+
+* In C programming,               
+      - int n;  printf(n);
+      - output : ```Garbage value```
+
+* In Java programming,
+      - for same output will be an error -> ```compilation error```
+
+## Collections and Maps:
+
+<img width="458" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/b345d99f-7323-4062-a556-4d25a2ea840d">
+
+<img width="458" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/1d7f4624-bc65-4809-b7e4-f03957207fc8">
+
+
+#### Wrapper Class:
+
+1. byte - BYTE
+2. short - SHORT
+3. int - ```Integer```
+4. long - LONG
+5. float - FLOAT
+6. double - DOUBLE
+7. char - ```Character```
+8. boolean - BOOLEAN
+
+#### ARRAY and ARRAYLIST
+
+* **ARRAYs** are fixed size data structures, meaning that once you declare an array with a specific size, you cannot change it. You need to know the size of gthe array at the timr of declaration. arrays generally have better performance than **ARRAYLISTs** because they have direct access to the elemnts using index_based access.
+
+* **ARRAYLISTs**, on the other hand, are dynamically data structures that can increases in size as needed. They automatically handle the resizing of the array to accommodate new elements. **ARRAYLISTs** are part of the standard library (Java Collection Framework) and provide additional features like dynamic resizing, easy addition and removal of elements.
+
+* Declaration ArrayList : Use ```util``` package
+ _ ArrayList<Integer> data = new ArrayList<Integer>();_
+
+    - Example:
+     ``` 
+      import java.util.ArrayList;
+      import java.util.Scanner;
+
+      public class AddNumbers {
+      
+          public static void main(String[] args) {
+      
+              Scanner scanner = new Scanner(System.in);
+              ArrayList<Integer> numbers = new ArrayList<>();
+
+              System.out.println("Enter the first number: ");
+              int num1 = scanner.nextInt();
+              numbers.add(num1);
+
+              System.out.println("Enter the second number: ");
+              int num2 = scanner.nextInt();
+              numbers.add(num2);
+
+              int sum = numbers.get(0) + numbers.get(1);
+              System.out.println("Sum of the two numbers: " + sum);
+
+              scanner.close();
+          }
+       }
+     ```
+  **or**
+
+  _List<Integer> data = Arrays.asList(10,20)_
+
+    - Example:
+      ```
+      import java.util.ArrayList;
+      import java.util.Arrays;
+      import java.util.List;
+      import java.util.Scanner;
+
+      public class AddNumbers {
+
+          public static void main(String[] args) {
+      
+              Scanner scanner = new Scanner(System.in);
+
+              System.out.println("Enter the first number: ");
+              int num1 = scanner.nextInt();
+
+              System.out.println("Enter the second number: ");
+              int num2 = scanner.nextInt();
+
+              List<Integer> numbers = Arrays.asList(num1, num2);
+
+              int sum = numbers.get(0) + numbers.get(1);
+              System.out.println("Sum of the two numbers: " + sum);
+
+              scanner.close();
+          }
+      }
+      ```
+     
