@@ -539,38 +539,40 @@ TreeSet doesn’t allow null values.
 
 Example:
 ```
-public static void main(String[] args) {
+public static void main(String[] args)
+{
+	float num1, num2, result;
+	Scanner obj = new Scanner(System.in);
 
-		float num1, num2, result;
-		Scanner obj = new Scanner(System.in);
+	try // start from catch block
+    	{
+		System.out.println("Enter Two numbers: ");
+		num1 = Float.parseFloat(obj.nextLine());
+		num2 = Float.parseFloat(obj.nextLine());
+	
+		result = num1 / num2;
+	
+		System.out.println("Answer: " + result);
+	}
+    	catch (NumberFormatException ex) // First catch block
+    	{
+		System.out.println("Please again check the input. Only numbers are allowed.");
+	}
 
-		try // start from catch block
-    {
-				System.out.println("Enter Two numbers: ");
-				num1 = Float.parseFloat(obj.nextLine());
-				num2 = Float.parseFloat(obj.nextLine());
-	
-				result = num1 / num2;
-	
-				System.out.println("Answer: " + result);
-		}
-    catch (NumberFormatException ex) // First catch block
-    {
-			System.out.println("Please again check the input. Only numbers are allowed.");
-		}
-		catch (Exception e) // second catch block
-    {
-			System.out.println("Some error occurred. Contact the admin.");
-		}
-		finally // End of the all catch blocks, we take the finally block
-    {
-			System.out.println("Print any key to exit.");
-			obj.close();
-		}
+	catch (Exception e) // second catch block
+    	{
+		System.out.println("Some error occurred. Contact the admin.");
+	}
+
+	finally // End of the all catch blocks, we take the finally block
+    	{
+		System.out.println("Print any key to exit.");
+		obj.close();
 	}
 }
 ```  
 <br>
+
 * According to the above code we declare two catch block after try block because we can use multiple catch blocks after try bloack.
 
 * Catch blocks will execute according to the unexpected errors in the program. In example, first catch block is _NumberFormatException_ exception that will display when occured some error in format of numbers. But second exception is _**Exception**_, that will catch all unexpected error which cannot by handle first catch block because when we take a catch block as **Exception** that will act as a **Super Exception**.
