@@ -164,6 +164,8 @@ Operator Category	Operators List
  
 ### Note
 
+* _Multiple Inheritance _only support for **Interface** in Java, not for classes. _Interface_ is a pure abstract class.
+
 * In C programming,               
       - int n;  printf(n);
       - output : ```Garbage value```
@@ -178,6 +180,43 @@ Operator Category	Operators List
 * When we use ```nextLine()``` we can get full input line as output.
 
 * If we want to get one character we can use _char = sc.next().**charAt(0)**;_
+
+* Use ```MessageFormat``` method form _java.text.MessageFormat_ package, instead of using ```+```for concatenation operation.
+
+  Example:
+  ```
+  String name = "ABC";
+  int age = "10";
+  ````
+  ```
+  System.out.println("I am "+name+". I am "+age+" years old.");
+  ```
+  **Best way:**
+  ```
+  details = MessageFormat._format_("I am {0}. I am {1} years old.", name, age);
+  System.out.println(details);
+  ```
+
+* Use ```String.valueOf()``` instead of ```toString()```.
+
+  Example:
+
+  ```
+  String data = null;
+  System.out.println(data.toString());
+  ```
+  ```
+  String data = null;
+  System.out.println(String.valueOf(data));
+  ```
+
+* Use ```equalsIgnoreCase()``` when compared to _toUpperCase().equals_ or _toLowerCase().equals_.
+
+* When using ```StringBuilder``` or ```StringBuffer``` append method for single a single character always use single quote.
+  
+  Example: ```sb.append('a')``` is better than _sb.append("a")_
+
+* StringBuilder default capacity is ```16```.
 
 ## Collections and Maps:
 
@@ -277,6 +316,8 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
 
 * **ARRAYLIST** provides faster  accesss to elements using index-based access as it can directly calculate the memory location of the elements. However, insertions and deletions in the middle of the list require shifting elements which can be slow for large lists. **ArrayList** generally uses less memory than **Linkedlist** since it only needs to store the elements and the dynamic array that holds them.
 
+* ArrayList default capasity is ```10```, also allows for ```NULL``` values.
+
   - Using ```eachCapasity()``` we can check the size of the **ArrayList** before initialize the size.
  
 ##### [ArrayList Predefined Functions](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
@@ -286,6 +327,8 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
 
 
 * **LinkedList** is more efficient for frequent insertions and deletions in the middle of the list because it only requires updating the pointers. However, accessing elements by index, it needs to traverse the list from beginning or end to reach the desired elements. **LinkedList** uses more memory as it needs to store additional pointers(prevoius and next elements addresses) for each elements.
+
+* LinkedList implements Doubly LinkedList, also allows to ```NULL``` values
 
     - Uses ```AddFirst(E e)``` method to add element to the beginning of the list. It takes boolean value.
     - and ```AddLast(E e)``` method to add element to the end of the list. It takes void.
@@ -299,7 +342,178 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
 <img width="344" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/c59c852e-f101-46b4-ae79-819de6274101"><br>
 <img width="341" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/3304798c-f67b-44a9-8d77-c118130b1d7f">
 
+#### PRIORITYQUEUE
+
+Example: Queue<Integer> data = new PriorityQueue<Integer>() 
+
+* Queue and PriorityQueue are from **java.util** package.
+* Here are differenet methods such as;
+   1. data.peek() - It takes the top elemets in the Queue. It is FIFO algorithm.
+   2. data.poll() - It removes the top element of the queue and display the second element.
+
+ * PriorityQueue **default initial capacity** is ```11```.
+
+### **Write** in a Flat file and **Read** from a Flat file
+
+Methods: From ```java.io.*``` package
+1. ```FileReader``` --> Read and print _Character by Character_. It is required file object.
+
+   Example:
+```
+   Files f1 = new Files("path\file_name.txt");
+   FileReader fr = new FileReader(f1);
+   int ch = fr.read();
+   while(ch != -1)
+   {
+      System.out.println((char)ch);
+      ch = fr,read();
+      fr.close();
+   }
+```          
+   
+2. ```BufferedReader``` --> Read and Print _Character by Character_ ot _Line by Line_. It is required **FileReader object**.
+
+      Example:
+   ```
+      // Taking FileReader object.
+      try (BufferedReader reader = new BufferedReader(new             
+      FileReader("myfile.txt")))
+      {
+          String line;
+          while ((line = reader.readLine()) != null)
+          {
+          // process each line of the file
+          }
+      }
+      catch (IOException e)
+      {
+          // handle exception
+      }
+    ``` 
+   
+4. ```Files.readAllFiles``` --> read all lines and print. It is _List of String_.
+
+      Example:
+   ```
+      List<String> fileContent;
+      try
+      {
+         fileContent = Files.readAllFiles(Paths.get("path\file_name.txt"));
+         fileContent.forEach(f -> System.out.println(f));
+      }
+   ```
+   or
+   ```
+        try
+        {
+           List<String> fileContent = new ArrayList<String>();
+        }
+   ```
+5. ```FileWriter``` --> Read and print something from flatf file.
+
+     Example:
+   ```
+      File f1 = new File("path\file_name.txt");
+      try
+      {
+         FileWriter fw = new  FileWriter(f1);
+   
+         // Read a name from the file
+         System.out.println("Enter the id: ");
+         name = obj.nextLine();
+         fw.write(name);
+         fw.close();
+      }
+   ```
+* When we use ```FileWriter(f1)``` method, it takes the input from flat file then that input will deleted. BUT when we use ```FileWriter(f1, true)```, it takes the input from flat file without destroying the input.
+
+#### **HashSet** and **TreeSet**
+
+* ```Set<String> fruits = new HashSet<>()``` from java.util.* package.
+  Elements in a _HashSet_ are not stored in any particular order, it is stored in a natural order. The order in which elements are inserted may not be preserved. Then insertion and retrieval operations have an average time complexity.
+
+* Also doesn’t provide any get() method because it is not index-based.
+Null value allowed only once.
+
+* In **HashSet**, the ```Object.clone()``` method is used to create a _shallow copy of an object_. The ```clone()``` method is defined in the Object class, and every class in Java inherits this method. However, to use ```clone()``` effectively, a class must implement the Cloneable interface. If a class does not implement Cloneable and calls clone(), it will throw a _CloneNotSupportedException_.
+HashSet in Java, the clone() method is inherited from the Object class, and **HashSet** itself _does not override_ or modify this method. Therefore, when you call clone() on a HashSet object, you will get a shallow copy of the set.
+
+* A **shallow copy** means that the new HashSet will contain the same elements (references) as the original HashSet. However, the elements themselves are not cloned. This means that if the elements in the HashSet are mutable objects, changes made to those objects in the original HashSet will also be reflected in the cloned HashSet, as they both refer to the same objects.
+
+  Example:
+  ```
+  import java.util.HashSet;
+
+    public class HashSetCloneExample
+    {
+        public static void main(String[] args)
+        {
+            HashSet<String> originalSet = new HashSet<>();
+            originalSet.add("apple");
+            originalSet.add("banana");
+            originalSet.add("orange");
+    
+            // Create a shallow copy of the originalSet
+            HashSet<String> clonedSet = (HashSet<String>) originalSet.clone();
+    
+            System.out.println("Original Set: " + originalSet);
+            System.out.println("Cloned Set: " + clonedSet);
+    
+            // Modify the original set
+            originalSet.add("grapes");
+    
+            System.out.println("Original Set after modification: " + originalSet);
+            System.out.println("Cloned Set after modification: " + clonedSet);
+        }
+    }
+  ```
+  **Output:**
+  ```
+  Original Set: [orange, banana, apple]
+  Cloned Set: [orange, banana, apple]
+  Original Set after modification: [grapes, orange, banana, apple]
+  Cloned Set after modification: [orange, banana, apple]
+  ```
+* As you can see from the output, the cloned set remains unchanged even after modifying the original set. This is because both the original and cloned sets share the same objects (references) for their elements.
+  
+* Keep in mind that while clone() can be useful in some cases, it has certain limitations, especially when dealing with complex objects or collections of objects. In such cases, it is often better to use other techniques like creating a deep copy manually or using third-party libraries for deep cloning.
+
+* ```TreeSet<Integer> treeSet = new TreeSet<>()``` from java.util.* package.
+   Elements in a TreeSet are always stored in sorted order. This allows efficient range queries and iteration over the elements in a sorted manner. Then insertion and retrieval operations have higher time complexity  because it inserts the values in ascending order.
+TreeSet doesn’t allow null values.
+
+#### HashMap
+
+* ``` Map<String, Integer> scores = new HashMap<String, Integer>()``` from java.util.* package.
+  HashMap takes key, value pair.
+* There are 2 method to add data:
+  - data.add()
+  - data.put()
  
+* We can get keys and values different ways;
+
+  Example:
+  ```
+  // Using For Loop takes keys
+  for(String key: data.keyset())
+  {
+      System.out.println(key+":"+ data.get(key));
+  }
+  ```
+  or
+  ```
+  // Using forEach 
+  data.forEach((key, value) -> System.out.println(Key+":"+ value));
+  ```
+  or
+  ```
+  // Taking values using For Loop
+  for(String value: data.values())
+  {
+      System.out.println(value+":"+ data.get(value));
+  }
+  ```
+
 #### Compilation Error and Runtime Error
 
 * A **compilation error**, also known as a _compile-time error_ or _syntax error_, occurs when the source code written by the programmer does not conform to the rules of the programming language. It happens during the compilation phase when the code is being translated into machine-executable code by the compiler. Compilation errors prevent the successful creation of an executable program and must be fixed before the code can be executed.<br><br>
@@ -317,5 +531,50 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
 
 * We can control using [Exception Handling](https://docs.oracle.com/en/database/other-databases/timesten/22.1/plsql-developer/understanding-exceptions.html#GUID-4789C4D0-E366-4016-AF57-B552377CF6A1).
 
-* 
-  
+### **Exception Handling**
+
+* _Exception handling_ is a crucial programming concept used to manage unexpected or exceptional situations that can occur during the execution of a program. These exceptional situations, known as exceptions, can arise due to various reasons, such as invalid inputs, resource unavailability, network issues, or programming errors.
+
+* The _primary purpose_ of exception handling is to prevent the unexpected situation of the program when an exception occurs and creates an _user friendly interface_. Instead of crashing, the program can detect and respond to exceptions, allowing it to recover or exit, providing valuable information about the issue.
+
+Example:
+```
+public static void main(String[] args) {
+
+		float num1, num2, result;
+		Scanner obj = new Scanner(System.in);
+
+		try // start from catch block
+    {
+				System.out.println("Enter Two numbers: ");
+				num1 = Float.parseFloat(obj.nextLine());
+				num2 = Float.parseFloat(obj.nextLine());
+	
+				result = num1 / num2;
+	
+				System.out.println("Answer: " + result);
+		}
+    catch (NumberFormatException ex) // First catch block
+    {
+			System.out.println("Please again check the input. Only numbers are allowed.");
+		}
+		catch (Exception e) // second catch block
+    {
+			System.out.println("Some error occurred. Contact the admin.");
+		}
+		finally // End of the all catch blocks, we take the finally block
+    {
+			System.out.println("Print any key to exit.");
+			obj.close();
+		}
+	}
+}
+```  
+<br>
+* According to the above code we declare two catch block after try block because we can use multiple catch blocks after try bloack.
+
+* Catch blocks will execute according to the unexpected errors in the program. In example, first catch block is _NumberFormatException_ exception that will display when occured some error in format of numbers. But second exception is _**Exception**_, that will catch all unexpected error which cannot by handle first catch block because when we take a catch block as **Exception** that will act as a **Super Exception**.
+This catch block should be placed end of the all other catch block, otherwise only we can use **Super Exception**.
+
+* End of all try and catch block we declare the finally block.
+  Finally block executes when exception accured or not. It displays every statements inside the finally block.
