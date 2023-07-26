@@ -46,7 +46,28 @@
   int age = data; --> No error
   Assigning an integer value to a primitive int variable in Java does not give an error. Both integer data = 5; and int data = 5; are valid assignments.
 
-* [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
+### Regular Expressions
+
+Example:
+  - We check for equality of two string
+  - We check if the value is strating the some string or character.
+  - We check if the value is ending with some data.
+  - We also check if the text is of a specific pattern - like email id, zip code, etc...
+
+<img width="332" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/dda88ff4-bccd-4a5a-a5b7-cee4c0254234"><br>
+
+* **Types:**
+  
+<img width="332" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/25bd8f26-a3f3-4483-a502-261db95c35a5"><br>
+<img width="333" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/3dc7a137-f471-4a0c-8fc0-672e4ec87ed5">
+
+**Examples:**
+
+<img width="331" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/15373d1d-42eb-46da-bed2-066c38c68405"><br>
+<img width="328" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/badf5e95-325e-43c9-999d-8e60c1a7d439">
+
+
+### [**StringBuilder**](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
   
    ![image](https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/2c64fe98-bc9b-4d1d-9448-4219dc61faea)
    - StringBuilder creates a default capasity(16 bytes) in the memory. 
@@ -268,6 +289,10 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
 
     - Uses ```AddFirst(E e)``` method to add element to the beginning of the list. It takes boolean value.
     - and ```AddLast(E e)``` method to add element to the end of the list. It takes void.
+
+* Using following example we can get an idea about the operation speed between **ArrayList** and **LinkedList**.
+<img width="330" alt="image" src="https://github.com/thisarakaushan/Core-Java-Training/assets/125348115/c41a4815-ef51-491d-ac13-316efb9b4a3c">
+
  
 ##### [LinkedList Predefined Functions](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html)
 
@@ -291,4 +316,6 @@ Click here to review more about [HashMap](https://docs.oracle.com/javase/8/docs/
         - [more](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#:~:text=Class%20Runtime&text=Every%20Java%20application%20has%20a,own%20instance%20of%20this%20class.)
 
 * We can control using [Exception Handling](https://docs.oracle.com/en/database/other-databases/timesten/22.1/plsql-developer/understanding-exceptions.html#GUID-4789C4D0-E366-4016-AF57-B552377CF6A1).
+
+* 
   
