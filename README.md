@@ -16,7 +16,7 @@
 * Executable code will have a MAIN method but Libraries will not have a main method.
 
 * **Values Type** variables are stored in a **STACK memory**. --> Value type is faster that reference type.
-* **Reference Tpye** variables are stored in a **HEAP memory**.
+* **Reference Type** variables are stored in a **HEAP memory**.
 
 * String s1 = "Name";
   String s2 = "Name";
