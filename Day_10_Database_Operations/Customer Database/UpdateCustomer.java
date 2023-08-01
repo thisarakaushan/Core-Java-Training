@@ -4,37 +4,36 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CreateCustomer {
+public class UpdateCustomer {
 
 	public static void main(String[] args) {
-		
-		int insert = 0;
 
+		int updateCount = 0;
 		Connection conn = DBconnection.getConnection();
+		
 		try {
-			
 			Statement statement = conn.createStatement();
-			String sql = "INSERT INTO customer VALUES('Another string value', 4)";
-			insert = statement.executeUpdate(sql);
-			if(insert >  0) {
+			String sql = "UPDATE customer SET firstname = 'Updated_to_IBM'	WHERE customer_id = 4";
+			updateCount = statement.executeUpdate(sql);
+			if (updateCount > 0) {
+				System.out.println("Data Updated!");
 				
-				System.out.println("Data inserted!");
 			}else {
 				
 				System.out.println("Something went wrong...");
 			}
-		} catch (SQLException e1) {
-
-			e1.printStackTrace();
-		}finally {
 			
-			if (conn != null) { 
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		finally {
+			if(conn != null) {
 				try {
 					conn.close();
 					
-				} catch (Exception e) {
-
-					e.printStackTrace();
+				} catch(Exception e1) {
+					e1.printStackTrace();
 				}
 			}
 		}
