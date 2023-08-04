@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+<struts>
+	<constant name = "struts.devMode" value = "true"  />
+	<package namespace="/" name = "hellodemo" extends = "json-default">
+	
+		<action name="dataLoading"
+			class = "com.highradius.action.Action"
+			method = "dataLoading">
+			
+			<result type="json" name="success">
+				<param name="">Actors Data</param>
+			</result>
+			
+			<result type="json" name="error">
+				<param name="">/error.jsp</param>
+			</result>
+		</action>
+		
+		<action name="readRows"
+			class = "com.highradius.action.Action"
+			method = "readRows">
+			
+			<result type="json" name="success">
+				<param name="">Actors Data</param>
+			</result>
+			
+			<result type="json" name="error">
+				<param name="">/error.jsp</param>
+			</result>
+		</action>
+		
+		<action name="addRows"
+			class = "com.highradius.action.Action"
+			method = "addRows">
+			
+			<interceptor-ref name= "json">
+				<param name="enableSMD">true</param>
+			</interceptor-ref>
+			
+			<result type="json" name="success">
+				<param name="">Actors Data</param>
+			</result>
+			
+			<result type="json" name="error">
+				<param name="">/error.jsp</param>
+			</result>
+		</action>
+		
+		<action name="updateRows"
+			class = "com.highradius.action.Action"
+			method = "updateRows">
+			
+			<interceptor-ref name= "json">
+				<param name="enableSMD">true</param>
+			</interceptor-ref>
+			
+			<result type="json" name="success">
+				<param name="">Actors Data</param>
+			</result>
+			
+			<result type="json" name="error">
+				<param name="">/error.jsp</param>
+			</result>
+		</action>
+		
+		<action name="deleteRows"
+			class = "com.highradius.action.Action"
+			method = "deleteRows">
+			
+			<interceptor-ref name= "json">
+				<param name="enableSMD">true</param>
+			</interceptor-ref>
+			
+			<result type="json" name="success">
+				<param name="">Actors Data</param>
+			</result>
+			
+			<result type="json" name="error">
+				<param name="">/error.jsp</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>
