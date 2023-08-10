@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.highradius.hibernate.pojo">
+
+	<class table="address" name="Address">
+		<id name="addressId" type="int">
+			<column name="address_id"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="street" column="street"/>
+		<property name="city" column="city"/>
+		<property name="zipcode" column="zipcode"/>
+		
+		<many-to-one name="applicant" class="Applicant2" fetch="select">
+			<column name="applicant_id" not-null="true"/>
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

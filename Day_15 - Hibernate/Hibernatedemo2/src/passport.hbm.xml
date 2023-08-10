@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.highradius.hibernate.pojo">
+	<class table="Passport" name="Passport">
+		<id name="passportId" type="int" column="passport_id">
+			<generator class="foreign">
+				<param name="property">applicant</param>
+			</generator>
+		</id>
+		
+		<one-to-one name="applicant" class="Applicant" constrained="true"/>
+		
+		<property name="passportNumber" column="Passport_Number"/>
+		<property name="issuedDate" type="date" column="Issued_Date"/>
+		<property name="expiryDate" type="date" column="Expiry_Date"/>
+	</class>
+</hibernate-mapping>
