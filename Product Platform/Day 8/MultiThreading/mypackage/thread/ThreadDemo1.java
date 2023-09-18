@@ -44,3 +44,19 @@ public class ThreadDemo1 {
 		
 	}
 }
+
+/**
+ *
+ * Output:
+ * 
+ * Hi
+ * Hi
+ * Hi
+ * Hi
+ * Hi
+ * Hello
+ * Hello
+ * Hello
+ * Hello
+ * Hello
+ */
